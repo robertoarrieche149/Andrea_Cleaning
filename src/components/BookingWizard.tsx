@@ -53,7 +53,10 @@ export default function BookingWizard({ selectedServiceId, onBookingReset }: Boo
       client_address: fullAddress,
       booking_date: formattedSelectedDate,
       booking_time: selectedTime || "",
-      special_comments: (formData as any).comments || "Ninguno"
+      special_comments: (formData as any).comments || "Ninguno",
+      selected_service: selectedServiceId 
+        ? `${selectedServiceId.charAt(0).toUpperCase() + selectedServiceId.slice(1)} Cleaning` 
+        : "Evaluación General"
     };
 
     try {
