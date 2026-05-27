@@ -1,0 +1,6 @@
+{
+  "name": "Andrea's Cleaning Services",
+  "description": "Professional residential cleaning services in Madison & Huntsville, AL. Enjoy a fresh, spotless, and welcoming home.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
