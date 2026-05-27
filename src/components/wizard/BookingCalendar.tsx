@@ -53,6 +53,12 @@ export default function BookingCalendar({
     // Rule 1: No past dates
     if (normalizedDate < today) return true;
 
+    // Rule 1b: Si es hoy pero ya es tarde (pasadas las 3:00 PM), no quedan turnos viables
+    if (normalizedDate.toDateString() === today.toDateString()) {
+      const currentHour = new Date().getHours();
+      if (currentHour >= 15) return true;
+    }
+
     // Rule 2: 30 days limit
     if (normalizedDate > maxDate) return true;
 
@@ -61,6 +67,29 @@ export default function BookingCalendar({
     if (dayOfWeek === 0 || dayOfWeek === 6) return true;
 
     return false;
+  };
+
+  // Check if a specific time slot has already passed for today (including 2-hour prep buffer)
+  const isTimeSlotDisabled = (timeStr: string): boolean => {
+    if (!selectedDate) return false;
+    
+    const isTodaySelected = selectedDate.toDateString() === today.toDateString();
+    if (!isTodaySelected) return false;
+
+    // Convert slot like "09:00 AM" to 24h hour number
+    const [time, modifier] = timeStr.split(" ");
+    let [hours] = time.split(":").map(Number);
+    if (modifier === "PM" && hours !== 12) {
+      hours += 12;
+    }
+    if (modifier === "AM" && hours === 12) {
+      hours = 0;
+    }
+
+    const currentHour = new Date().getHours();
+    
+    // Disable if slot is in the past or within 2 hours of prep buffer
+    return hours <= currentHour + 2;
   };
 
   const weekdayNames = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
@@ -209,17 +238,21 @@ export default function BookingCalendar({
 
           {selectedDate ? (
             <div className="grid grid-cols-3 gap-2.5" id="time-slots-container">
-              {timeSlots.map((timeStr) => {
+               {timeSlots.map((timeStr) => {
                 const isSelectedTime = selectedTime === timeStr;
+                const isDisabled = isTimeSlotDisabled(timeStr);
                 return (
                   <button
                     key={timeStr}
+                    disabled={isDisabled}
                     onClick={() => onTimeSelect(timeStr)}
                     type="button"
-                    className={`py-2.5 px-1 text-xs sm:text-sm font-bold font-mono rounded-lg transition-all border cursor-pointer ${
-                      isSelectedTime
-                        ? "bg-brand-500 text-white border-brand-500 shadow-sm"
-                        : "bg-white hover:bg-brand-50 text-slate-800 border-slate-200 hover:border-brand-300"
+                    className={`py-2.5 px-1 text-xs sm:text-sm font-bold font-mono rounded-lg transition-all border ${
+                      isDisabled
+                        ? "bg-slate-100 text-slate-300 border-slate-150 cursor-not-allowed opacity-50"
+                        : isSelectedTime
+                        ? "bg-brand-500 text-white border-brand-500 shadow-sm cursor-pointer"
+                        : "bg-white hover:bg-brand-50 text-slate-800 border-slate-200 hover:border-brand-300 cursor-pointer"
                     }`}
                   >
                     {timeStr}
