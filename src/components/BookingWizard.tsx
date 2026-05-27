@@ -57,12 +57,12 @@ export default function BookingWizard({ selectedServiceId, onBookingReset }: Boo
     };
 
     try {
-      // Send message via emailjs as configured originally
+      // Send message via emailjs (dynamic from environment variables with fallback)
       await emailjs.send(
-        'correo_cleaning', 
-        'template_xd8fy1a', 
+        import.meta.env.VITE_EMAILJS_SERVICE_ID || 'correo_cleaning', 
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_xd8fy1a', 
         templateParams, 
-        'BoBMJpStFqB-gba8k'
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'BoBMJpStFqB-gba8k'
       );
       setStep(3); // Advance to success screen
     } catch (error) {
