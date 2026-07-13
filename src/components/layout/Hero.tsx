@@ -26,7 +26,7 @@ export default function Hero({ onBookNowClick }: HeroProps) {
         playsInline
         className="absolute inset-0 w-full h-full object-cover transition-all duration-1000 scale-105"
       >
-        <source src="/assets/video/0712-1.mp4" type="video/mp4" />
+        <source src="/assets/video/0712-origi.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       
