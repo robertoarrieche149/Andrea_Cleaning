@@ -74,7 +74,7 @@ export default function WorkGallery() {
     {
       id: 9,
       type: "video",
-      src: "/assets/video/video-proceso-limpieza.mp4",
+      src: "/assets/video/0712.mp4",
       alt: "Interactive preview of our professional cleaning process - Andreas Cleaning LLC video",
       tag: "Process Video"
     }
