@@ -32,8 +32,39 @@ export default function EstimateForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
+  const getFormattedDate = (date: Date) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+
+  const minDate = getFormattedDate(new Date());
+  const maxDateObj = new Date();
+  maxDateObj.setMonth(maxDateObj.getMonth() + 2);
+  const maxDate = getFormattedDate(maxDateObj);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
+
+    if (name === "preferredDate" && value) {
+      const selectedDate = new Date(value + "T12:00:00"); // Use noon to avoid timezone shift
+      if (selectedDate.getDay() === 0) {
+        alert("Los domingos trabajamos bajo cita previa especial. Por favor elige otro día o contáctanos por teléfono.");
+        return;
+      }
+    }
+
+    if (name === "preferredTime" && value) {
+      const [hoursStr, minutesStr] = value.split(':');
+      const hours = parseInt(hoursStr, 10);
+      const minutes = parseInt(minutesStr, 10);
+      if (hours < 8 || hours > 18 || (hours === 18 && minutes > 0)) {
+        alert("Nuestro horario de atención es de 8:00 AM a 6:00 PM. Para horarios especiales contáctenos.");
+        return;
+      }
+    }
+
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
@@ -307,6 +338,8 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
                       type="date" 
                       name="preferredDate"
                       required
+                      min={minDate}
+                      max={maxDate}
                       value={formData.preferredDate}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-hidden focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary bg-slate-50/50 text-slate-700"
@@ -323,6 +356,8 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
                       type="time" 
                       name="preferredTime"
                       required
+                      min="08:00"
+                      max="18:00"
                       value={formData.preferredTime}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-hidden focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary bg-slate-50/50 text-slate-700"
