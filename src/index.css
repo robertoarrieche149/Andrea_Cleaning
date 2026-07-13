@@ -5,12 +5,37 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Outfit", sans-serif;
   
-  --color-brand-50: #e6f8f9;
-  --color-brand-100: #b3edf0;
-  --color-brand-200: #80e2e7;
-  --color-brand-300: #4dd6de;
-  --color-brand-500: #20b5c0;
-  --color-brand-600: #0098a6;
-  --color-brand-700: #007c8c;
-  --color-brand-900: #004b56;
+  --color-brand-primary: #004B93;
+  --color-brand-accent: #66BB6A;
+  --color-brand-secondary: #00A8E8;
+  
+  --color-brand-50: #f4f8fc;
+  --color-brand-100: #e6eef7;
+  --color-brand-200: #b3cceb;
+  --color-brand-300: #80aade;
+  --color-brand-500: #004B93;
+  --color-brand-600: #003d78;
+  --color-brand-700: #00305e;
+  --color-brand-900: #00162b;
 }
+
+/* Custom Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base style resets and scroll bar customization */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f8f9fa;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #004B93;
+}
+

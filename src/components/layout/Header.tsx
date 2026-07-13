@@ -1,6 +1,5 @@
 import React from "react";
 import { Phone } from "lucide-react";
-import logoImg from "../../assets/logo.jpeg";
 
 interface HeaderProps {
   isScrolled: boolean;
@@ -22,39 +21,39 @@ export default function Header({ isScrolled }: HeaderProps) {
         <a href="#" className="flex items-center gap-3 group">
           <div className={`p-1.5 rounded-xl transition-all duration-300 ${
             isScrolled 
-              ? "bg-white/10 mix-blend-multiply" 
+              ? "bg-slate-100" 
               : "bg-white shadow-sm"
           }`}>
             <img 
-              src={logoImg} 
-              alt="Andrea's Cleaning Logo" 
+              src="/assets/images/logo.webp" 
+              alt="Andreas Cleaning LLC Logo" 
               className="h-10 sm:h-11 w-auto object-contain rounded-lg"
             />
           </div>
           <span className={`font-display font-black text-lg sm:text-2xl tracking-tight transition-colors duration-300 ${
             isScrolled
-              ? "text-brand-900 group-hover:text-brand-600"
-              : "text-white group-hover:text-brand-100"
+              ? "text-brand-primary group-hover:text-brand-secondary"
+              : "text-white group-hover:text-brand-secondary"
           }`}>
-            Andrea's Cleaning
+            Andreas Cleaning LLC
           </span>
         </a>
 
         {/* Phone Number Right Aligned */}
         <div className="flex items-center">
           <a 
-            href="tel:+584129884955" 
+            href="tel:+12565550123" 
             className={`flex items-center gap-2 font-bold px-4 py-2.5 rounded-full border transition-all text-sm sm:text-base cursor-pointer shadow-xs duration-300 ${
               isScrolled
-                ? "bg-brand-50 hover:bg-brand-100 text-brand-700 border-brand-150"
+                ? "bg-brand-50 hover:bg-brand-100 text-brand-primary border-brand-200"
                 : "bg-white/10 hover:bg-white/20 text-white border-white/20 backdrop-blur-sm"
             }`}
           >
             <Phone className={`h-4.5 w-4.5 animate-pulse ${
-              isScrolled ? "text-brand-500" : "text-brand-200"
+              isScrolled ? "text-brand-accent" : "text-brand-secondary"
             }`} />
             <span className="hidden sm:inline">Call or Text: </span>
-            <span className="font-mono">+58 (412) 988-4955</span>
+            <span className="font-mono">(256) 555-0123</span>
           </a>
         </div>
 

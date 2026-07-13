@@ -11,11 +11,11 @@ export default function Footer() {
           {/* Box 1: About */}
           <div className="text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start gap-2 text-white font-display font-extrabold text-xl mb-4">
-              <Sparkles className="h-5 w-5 text-brand-400" />
-              <span>Andrea's Cleaning Services</span>
+              <Sparkles className="h-5 w-5 text-brand-secondary" />
+              <span>Andreas Cleaning LLC</span>
             </div>
             <p className="text-sm text-slate-400 leading-relaxed">
-              Providing premium and deep residential cleaning across Atlanta, Georgia and surrounding metropolitan areas. Fully customizable scheduling tailored precisely to your family's safety and comfort.
+              Providing premium and deep residential cleaning across Madison, Huntsville, Hampton Cove, and New Market, Alabama. Fully customizable scheduling tailored precisely to your family's safety and comfort.
             </p>
           </div>
 
@@ -25,7 +25,7 @@ export default function Footer() {
             <ul className="text-sm space-y-2.5">
               <li>Monday – Saturday: <span className="text-white font-semibold">8:00 AM – 6:00 PM</span></li>
               <li>Sunday: <span className="text-slate-500">Closed (By appointment only)</span></li>
-              <li className="pt-2 text-brand-400 font-medium font-display">📍 Atlanta, Georgia</li>
+              <li className="pt-2 text-brand-secondary font-medium font-display">📍 Madison & Huntsville, Alabama</li>
             </ul>
           </div>
 
@@ -37,17 +37,17 @@ export default function Footer() {
             </p>
             <div className="flex flex-col gap-2 items-center md:items-end">
               <a 
-                href="tel:+584129884955" 
-                className="inline-flex items-center gap-2 bg-brand-650 hover:bg-brand-700 text-white font-bold px-5 py-2.5 rounded-xl transition-all font-mono"
+                href="tel:+12565550123" 
+                className="inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-600 text-white font-bold px-5 py-2.5 rounded-xl transition-all font-mono"
               >
-                <Phone className="h-4 w-4" />
-                +58 (412) 988-4955
+                <Phone className="h-4 w-4 text-brand-secondary animate-pulse" />
+                (256) 555-0123
               </a>
               <a 
                 href="mailto:Aesg1414@Gmail.com" 
                 className="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-bold px-5 py-2.5 rounded-xl transition-all font-mono border border-slate-700"
               >
-                <Mail className="h-4 w-4 text-brand-400" />
+                <Mail className="h-4 w-4 text-brand-secondary" />
                 Aesg1414@Gmail.com
               </a>
             </div>
@@ -73,16 +73,16 @@ export default function Footer() {
             </div>
             {/* Cards */}
             <div className="bg-slate-800 border border-slate-700/60 rounded-lg py-2 px-4 shadow-xs flex items-center gap-1.5 transition-colors hover:border-slate-600 group">
-              <CreditCard className="h-3.5 w-3.5 text-brand-400 group-hover:text-brand-350 transition-colors" />
-              <span className="text-xs font-bold text-white group-hover:text-brand-350 transition-colors">Cards</span>
+              <CreditCard className="h-3.5 w-3.5 text-brand-secondary group-hover:text-brand-secondary transition-colors" />
+              <span className="text-xs font-bold text-white group-hover:text-brand-secondary transition-colors">Cards</span>
             </div>
           </div>
         </div>
 
         {/* Bottom Copyright */}
         <div className="mt-10 pt-8 border-t border-slate-800/80 text-center text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} Andrea's Cleaning Services. All rights reserved.</p>
-          <p className="mt-1.5 text-slate-600">Designed with absolute precision for professional home care.</p>
+          <p>© {new Date().getFullYear()} Andreas Cleaning LLC. All rights reserved.</p>
+          <p className="mt-1.5 text-slate-600">Designed with absolute precision for professional home care in Alabama.</p>
         </div>
 
       </div>
