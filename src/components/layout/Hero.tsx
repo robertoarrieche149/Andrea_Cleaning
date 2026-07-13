@@ -14,7 +14,7 @@ interface HeroProps {
 }
 
 export default function Hero({ onBookNowClick }: HeroProps) {
-  const phoneUrl = "tel:+12565550123";
+  const phoneUrl = "tel:+19382472787";
 
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center pt-24 sm:pt-28 pb-16 overflow-hidden">

@@ -177,7 +177,9 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
                 
                 {submitStatus === "error" && (
                   <div className="bg-rose-50 border border-rose-100 rounded-2xl p-4 text-rose-800 text-xs sm:text-sm font-medium">
-                    ⚠ There was an error submitting your request. Please check your network and try again, or call us directly at (256) 555-0123.
+                    <p className="text-sm font-medium mt-1">
+                      ⚠ There was an error submitting your request. Please check your network and try again, or call us directly at +1 (938) 247-2787.
+                    </p>
                   </div>
                 )}
 
@@ -210,7 +212,7 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
                       type="tel" 
                       name="phone"
                       required
-                      placeholder="(256) 555-0123"
+                      placeholder="+1 (938) 247-2787"
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-hidden focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary bg-slate-50/50"

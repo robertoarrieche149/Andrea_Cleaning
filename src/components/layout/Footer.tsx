@@ -37,11 +37,11 @@ export default function Footer() {
             </p>
             <div className="flex flex-col gap-2 items-center md:items-end">
               <a 
-                href="tel:+12565550123" 
+                href="tel:+19382472787" 
                 className="inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-600 text-white font-bold px-5 py-2.5 rounded-xl transition-all font-mono"
               >
                 <Phone className="h-4 w-4 text-brand-secondary animate-pulse" />
-                (256) 555-0123
+                +1 (938) 247-2787
               </a>
               <a 
                 href="mailto:Aesg1414@Gmail.com" 

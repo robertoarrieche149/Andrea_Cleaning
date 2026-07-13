@@ -46,7 +46,7 @@ export default function App() {
       {/* 5. DETAILED SERVICE TASKS */}
       <ServiceTasks />
 
-      {/* 6. COVERAGE & FREQUENCIES */}
+      {/* 6. COVERAGE & LOCAL SEO */}
       <Coverage />
 
       {/* 7. ESTIMATE LEAD FORM */}

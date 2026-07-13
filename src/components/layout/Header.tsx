@@ -42,7 +42,7 @@ export default function Header({ isScrolled }: HeaderProps) {
         {/* Phone Number Right Aligned */}
         <div className="flex items-center">
           <a 
-            href="tel:+12565550123" 
+            href="tel:+19382472787" 
             className={`flex items-center gap-2 font-bold px-4 py-2.5 rounded-full border transition-all text-sm sm:text-base cursor-pointer shadow-xs duration-300 ${
               isScrolled
                 ? "bg-brand-50 hover:bg-brand-100 text-brand-primary border-brand-200"
@@ -53,7 +53,7 @@ export default function Header({ isScrolled }: HeaderProps) {
               isScrolled ? "text-brand-accent" : "text-brand-secondary"
             }`} />
             <span className="hidden sm:inline">Call or Text: </span>
-            <span className="font-mono">(256) 555-0123</span>
+            <span className="font-mono">+1 (938) 247-2787</span>
           </a>
         </div>
 

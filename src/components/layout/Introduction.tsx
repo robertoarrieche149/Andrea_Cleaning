@@ -3,8 +3,8 @@ import { motion } from "motion/react";
 import { Phone, CheckCircle2 } from "lucide-react";
 
 export default function Introduction() {
-  const phone = "(256) 555-0123";
-  const phoneUrl = "tel:+12565550123";
+  const phone = "+1 (938) 247-2787";
+  const phoneUrl = "tel:+19382472787";
 
   return (
     <section className="py-20 bg-white border-b border-slate-100" id="about-section">
