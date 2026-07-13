@@ -76,7 +76,7 @@ export default function EstimateForm() {
     // EmailJS credentials from environment variables or pre-configured fallbacks
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || "correo_cleaning";
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "BoBMJpStFqB-gba8k";
-    
+
     // We will use two separate template IDs. Fallback to same default template if not specified, 
     // but code allows using separate templates for client confirmation and admin lead.
     const clientTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE_CLIENT_ID || import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_xd8fy1a";
@@ -156,7 +156,7 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
   return (
     <section className="py-20 bg-slate-50 border-t border-slate-100 scroll-mt-20" id="estimate-section">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
-        
+
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="bg-brand-primary/10 text-brand-primary border border-brand-primary/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5">
@@ -179,7 +179,7 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
 
           <AnimatePresence mode="wait">
             {submitStatus === "success" ? (
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
@@ -193,7 +193,7 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
                   ¡Solicitud Enviada con Éxito!
                 </h3>
                 <p className="text-slate-650 max-w-md mx-auto text-sm leading-relaxed">
-                  ¡Gracias! Hemos enviado una confirmación a tu correo. 
+                  ¡Gracias! Hemos enviado una confirmación a tu correo.
                   El equipo de limpieza de Isabel revisará los detalles y te llamaremos en breve para confirmar la cita.
                 </p>
                 <button
@@ -205,7 +205,7 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6 relative z-10" key="estimate-form">
-                
+
                 {submitStatus === "error" && (
                   <div className="bg-rose-50 border border-rose-100 rounded-2xl p-4 text-rose-800 text-xs sm:text-sm font-medium">
                     <p className="text-sm font-medium mt-1">
@@ -215,15 +215,15 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
                 )}
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  
+
                   {/* Full Name */}
                   <div className="text-left">
                     <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                       <User className="h-3.5 w-3.5 text-brand-primary" />
                       Full Name <span className="text-rose-500">*</span>
                     </label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       name="client_name"
                       required
                       placeholder="John Doe"
@@ -239,11 +239,11 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
                       <Phone className="h-3.5 w-3.5 text-brand-primary" />
                       Phone Number <span className="text-rose-500">*</span>
                     </label>
-                    <input 
-                      type="tel" 
+                    <input
+                      type="tel"
                       name="client_phone"
                       required
-                      placeholder="+1 (938) 247-2787"
+                      placeholder="+1 (123) 123-1234"
                       value={formData.client_phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-hidden focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary bg-slate-50/50"
@@ -256,8 +256,8 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
                       <Mail className="h-3.5 w-3.5 text-brand-primary" />
                       Email Address <span className="text-rose-500">*</span>
                     </label>
-                    <input 
-                      type="email" 
+                    <input
+                      type="email"
                       name="client_email"
                       required
                       placeholder="johndoe@example.com"
@@ -334,8 +334,8 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
                       <Calendar className="h-3.5 w-3.5 text-brand-primary" />
                       Preferred Date <span className="text-rose-500">*</span>
                     </label>
-                    <input 
-                      type="date" 
+                    <input
+                      type="date"
                       name="booking_date"
                       required
                       min={minDate}
@@ -352,8 +352,8 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
                       <Clock className="h-3.5 w-3.5 text-brand-primary" />
                       Preferred Time <span className="text-rose-500">*</span>
                     </label>
-                    <input 
-                      type="time" 
+                    <input
+                      type="time"
                       name="booking_time"
                       required
                       min="08:00"
@@ -371,7 +371,7 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
                   <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
                     Additional Notes (Optional description)
                   </label>
-                  <textarea 
+                  <textarea
                     name="special_comments"
                     rows={4}
                     placeholder="Tell us about special needs, room sizes, pets, focus areas, or entry details..."
