@@ -163,33 +163,34 @@ export default function WorkGallery() {
       {/* Lightbox Video Modal */}
       <AnimatePresence>
         {activeVideo && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-50 flex items-center justify-center sm:p-4">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setActiveVideo(null)}
-              className="absolute inset-0 bg-black/80 backdrop-blur-md"
+              className="absolute inset-0 bg-black/90 backdrop-blur-md"
             />
             
             <motion.div
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="relative w-full max-w-4xl bg-slate-950 rounded-2xl overflow-hidden shadow-2xl z-10 border border-white/10"
+              className="relative w-full h-full sm:h-auto max-w-4xl bg-slate-950 sm:rounded-2xl overflow-hidden shadow-2xl z-10 sm:border border-white/10 flex flex-col justify-center"
             >
               <button
                 onClick={() => setActiveVideo(null)}
-                className="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white rounded-full p-2 cursor-pointer z-20 border border-white/10"
+                className="absolute top-4 right-4 bg-black/50 hover:bg-black/80 text-white rounded-full p-2 cursor-pointer z-20 border border-white/10 backdrop-blur-sm"
               >
                 <X className="h-6 w-6" />
               </button>
 
-              <div className="aspect-video w-full">
+              <div className="w-full h-full sm:h-[85vh]">
                 <video
                   src={activeVideo}
                   controls
                   autoPlay
+                  playsInline
                   className="w-full h-full object-contain"
                 />
               </div>

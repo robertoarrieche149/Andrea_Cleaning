@@ -42,7 +42,7 @@ export default function Header({ isScrolled }: HeaderProps) {
         {/* Phone Number Right Aligned */}
         <div className="flex items-center">
           <a 
-            href="tel:+19382472787" 
+            href="sms:+19382472787" 
             className={`flex items-center gap-2 font-bold px-4 py-2.5 rounded-full border transition-all text-sm sm:text-base cursor-pointer shadow-xs duration-300 ${
               isScrolled
                 ? "bg-brand-50 hover:bg-brand-100 text-brand-primary border-brand-200"

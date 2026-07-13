@@ -4,27 +4,27 @@ import { motion, AnimatePresence } from "motion/react";
 import { Calendar, User, Phone, Mail, MapPin, ClipboardList, Clock, Sparkles } from "lucide-react";
 
 interface EstimateFormData {
-  fullName: string;
-  phone: string;
-  email: string;
-  serviceArea: string;
-  serviceType: string;
+  client_name: string;
+  client_phone: string;
+  client_email: string;
+  service_area: string;
+  service_type: string;
   frequency: string;
-  preferredDate: string;
-  preferredTime: string;
-  notes: string;
+  booking_date: string;
+  booking_time: string;
+  special_comments: string;
 }
 
 const initialFormState: EstimateFormData = {
-  fullName: "",
-  phone: "",
-  email: "",
-  serviceArea: "",
-  serviceType: "Regular",
+  client_name: "",
+  client_phone: "",
+  client_email: "",
+  service_area: "",
+  service_type: "Regular",
   frequency: "One-Time",
-  preferredDate: "",
-  preferredTime: "",
-  notes: ""
+  booking_date: "",
+  booking_time: "",
+  special_comments: ""
 };
 
 export default function EstimateForm() {
@@ -47,7 +47,7 @@ export default function EstimateForm() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
 
-    if (name === "preferredDate" && value) {
+    if (name === "booking_date" && value) {
       const selectedDate = new Date(value + "T12:00:00"); // Use noon to avoid timezone shift
       if (selectedDate.getDay() === 0) {
         alert("Los domingos trabajamos bajo cita previa especial. Por favor elige otro día o contáctanos por teléfono.");
@@ -55,7 +55,7 @@ export default function EstimateForm() {
       }
     }
 
-    if (name === "preferredTime" && value) {
+    if (name === "booking_time" && value) {
       const [hoursStr, minutesStr] = value.split(':');
       const hours = parseInt(hoursStr, 10);
       const minutes = parseInt(minutesStr, 10);
@@ -83,7 +83,7 @@ export default function EstimateForm() {
     const adminTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ADMIN_ID || "template_admin_lead";
 
     // Format the date beautifully for the email
-    const formattedDate = new Date(formData.preferredDate + "T00:00:00").toLocaleDateString("en-US", {
+    const formattedDate = new Date(formData.booking_date + "T00:00:00").toLocaleDateString("en-US", {
       weekday: "long",
       year: "numeric",
       month: "long",
@@ -92,41 +92,41 @@ export default function EstimateForm() {
 
     // Flow A: Client Confirmation template parameters
     const clientParams = {
-      to_email: formData.email,
-      client_name: formData.fullName,
+      to_email: formData.client_email,
+      client_name: formData.client_name,
       booking_date: formattedDate,
-      booking_time: formData.preferredTime,
-      service_type: formData.serviceType,
-      service_area: formData.serviceArea,
-      notes: formData.notes || "None",
+      booking_time: formData.booking_time,
+      service_type: formData.service_type,
+      service_area: formData.service_area,
+      special_comments: formData.special_comments || "None",
       subject: "Your Free Estimate Request with Andreas Cleaning LLC",
       // Custom body formatted as requested by specs
-      message_body: `Hi ${formData.fullName}, thank you for reaching out! We have received your request for a free estimate on ${formattedDate} at ${formData.preferredTime} for our ${formData.serviceType} service in ${formData.serviceArea}. Optional description provided: '${formData.notes || "None"}'. We will contact you shortly via phone to confirm details.`
+      message_body: `Hi ${formData.client_name}, thank you for reaching out! We have received your request for a free estimate on ${formattedDate} at ${formData.booking_time} for our ${formData.service_type} service in ${formData.service_area}. Optional description provided: '${formData.special_comments || "None"}'. We will contact you shortly via phone to confirm details.`
     };
 
     // Flow B: Admin (Isabel) Lead Alert template parameters
     const adminParams = {
       to_email: "Aesg1414@Gmail.com", // Isabel's administrative email
-      client_name: formData.fullName,
-      client_phone: formData.phone,
-      client_email: formData.email,
+      client_name: formData.client_name,
+      client_phone: formData.client_phone,
+      client_email: formData.client_email,
       booking_date: formattedDate,
-      booking_time: formData.preferredTime,
-      service_type: formData.serviceType,
+      booking_time: formData.booking_time,
+      service_type: formData.service_type,
       frequency: formData.frequency,
-      service_area: formData.serviceArea,
-      notes: formData.notes || "None",
-      subject: `🚨 NEW LEAD: Free Estimate Request - ${formData.serviceArea}`,
+      service_area: formData.service_area,
+      special_comments: formData.special_comments || "None",
+      subject: `🚨 NEW LEAD: Free Estimate Request - ${formData.service_area}`,
       // Custom body formatted as requested by specs
       message_body: `Detalles del Cliente:
-Nombre: ${formData.fullName}
-Teléfono: ${formData.phone}
-Ubicación: ${formData.serviceArea}
+Nombre: ${formData.client_name}
+Teléfono: ${formData.client_phone}
+Ubicación: ${formData.service_area}
 
 Detalles de la Cita:
-Servicio: ${formData.serviceType} (${formData.frequency})
-Fecha/Hora sugerida: ${formattedDate} a las ${formData.preferredTime}
-Notas del cliente: ${formData.notes || "None"}
+Servicio: ${formData.service_type} (${formData.frequency})
+Fecha/Hora sugerida: ${formattedDate} a las ${formData.booking_time}
+Notas del cliente: ${formData.special_comments || "None"}
 
 Acción: Ponerse en contacto con el cliente para cerrar la cita.`
     };
@@ -186,21 +186,21 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
                 className="text-center py-10 space-y-5"
                 key="success-message"
               >
-                <div className="inline-flex items-center justify-center p-4 bg-emerald-50 text-brand-accent rounded-full border border-emerald-100">
-                  <Sparkles className="h-10 w-10 text-brand-accent animate-pulse" />
+                <div className="inline-flex items-center justify-center p-4 bg-emerald-100 text-emerald-600 rounded-full border border-emerald-200">
+                  <Sparkles className="h-10 w-10 text-emerald-500 animate-pulse" />
                 </div>
-                <h3 className="font-display font-extrabold text-2xl text-slate-900">
-                  Estimate Request Sent Successfully!
+                <h3 className="font-display font-extrabold text-2xl text-emerald-700">
+                  ¡Solicitud Enviada con Éxito!
                 </h3>
                 <p className="text-slate-650 max-w-md mx-auto text-sm leading-relaxed">
-                  Thank you! We have sent a confirmation email to your address. 
-                  Isabel's cleaning crew will review your schedule details and call you shortly to confirm the appointment.
+                  ¡Gracias! Hemos enviado una confirmación a tu correo. 
+                  El equipo de limpieza de Isabel revisará los detalles y te llamaremos en breve para confirmar la cita.
                 </p>
                 <button
                   onClick={() => setSubmitStatus("idle")}
-                  className="px-6 py-2.5 bg-brand-primary hover:bg-brand-600 text-white font-bold rounded-xl transition-all shadow-md text-xs cursor-pointer"
+                  className="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition-all shadow-md text-xs cursor-pointer"
                 >
-                  Send Another Request
+                  Enviar Nueva Solicitud
                 </button>
               </motion.div>
             ) : (
@@ -224,10 +224,10 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
                     </label>
                     <input 
                       type="text" 
-                      name="fullName"
+                      name="client_name"
                       required
                       placeholder="John Doe"
-                      value={formData.fullName}
+                      value={formData.client_name}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-hidden focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary bg-slate-50/50"
                     />
@@ -241,10 +241,10 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
                     </label>
                     <input 
                       type="tel" 
-                      name="phone"
+                      name="client_phone"
                       required
                       placeholder="+1 (938) 247-2787"
-                      value={formData.phone}
+                      value={formData.client_phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-hidden focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary bg-slate-50/50"
                     />
@@ -258,10 +258,10 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
                     </label>
                     <input 
                       type="email" 
-                      name="email"
+                      name="client_email"
                       required
                       placeholder="johndoe@example.com"
-                      value={formData.email}
+                      value={formData.client_email}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-hidden focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary bg-slate-50/50"
                     />
@@ -274,9 +274,9 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
                       Service Area <span className="text-rose-500">*</span>
                     </label>
                     <select
-                      name="serviceArea"
+                      name="service_area"
                       required
-                      value={formData.serviceArea}
+                      value={formData.service_area}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-hidden focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary bg-slate-50/50 text-slate-800"
                     >
@@ -295,8 +295,8 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
                       Service Type
                     </label>
                     <select
-                      name="serviceType"
-                      value={formData.serviceType}
+                      name="service_type"
+                      value={formData.service_type}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-hidden focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary bg-slate-50/50 text-slate-800"
                     >
@@ -336,11 +336,11 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
                     </label>
                     <input 
                       type="date" 
-                      name="preferredDate"
+                      name="booking_date"
                       required
                       min={minDate}
                       max={maxDate}
-                      value={formData.preferredDate}
+                      value={formData.booking_date}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-hidden focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary bg-slate-50/50 text-slate-700"
                     />
@@ -354,11 +354,11 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
                     </label>
                     <input 
                       type="time" 
-                      name="preferredTime"
+                      name="booking_time"
                       required
                       min="08:00"
                       max="18:00"
-                      value={formData.preferredTime}
+                      value={formData.booking_time}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-hidden focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary bg-slate-50/50 text-slate-700"
                     />
@@ -372,10 +372,10 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
                     Additional Notes (Optional description)
                   </label>
                   <textarea 
-                    name="notes"
+                    name="special_comments"
                     rows={4}
                     placeholder="Tell us about special needs, room sizes, pets, focus areas, or entry details..."
-                    value={formData.notes}
+                    value={formData.special_comments}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-hidden focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary bg-slate-50/50 text-slate-700"
                   />
