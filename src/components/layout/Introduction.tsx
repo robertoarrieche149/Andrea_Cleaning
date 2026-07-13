@@ -7,7 +7,7 @@ export default function Introduction() {
   const phoneUrl = "tel:+19382472787";
 
   return (
-    <section className="py-20 bg-white border-b border-slate-100" id="about-section">
+    <section className="py-20 bg-brand-primary/5 border-b border-brand-primary/10" id="about-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
@@ -19,7 +19,7 @@ export default function Introduction() {
             transition={{ duration: 0.6 }}
             className="flex justify-center"
           >
-            <div className="relative p-6 sm:p-10 bg-slate-50 rounded-3xl border border-slate-100 shadow-xl max-w-md w-full">
+            <div className="relative p-6 sm:p-10 bg-brand-primary/10 rounded-3xl border border-brand-primary/20 shadow-xl max-w-md w-full">
               {/* Decorative accent element */}
               <div className="absolute -top-3 -left-3 w-12 h-12 bg-brand-secondary/10 rounded-full blur-xl" />
               <div className="absolute -bottom-3 -right-3 w-16 h-16 bg-brand-accent/10 rounded-full blur-xl" />

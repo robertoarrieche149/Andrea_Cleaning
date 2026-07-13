@@ -120,7 +120,7 @@ export default function ServiceTasks() {
         <div className="hidden lg:grid grid-cols-3 gap-8 items-start">
           
           {/* Column 1: Regular Cleaning */}
-          <div className="bg-slate-50 border border-slate-150 rounded-3xl p-6 shadow-sm hover:shadow-md transition-all h-full">
+          <div className="bg-brand-primary/5 border border-brand-primary/10 rounded-3xl p-6 shadow-sm hover:shadow-md transition-all h-full">
             <div className="flex items-center gap-3 mb-6">
               <span className="p-2 bg-brand-primary text-white rounded-xl">01</span>
               <h3 className="font-display font-bold text-xl text-slate-900">Regular Cleaning</h3>
@@ -167,7 +167,7 @@ export default function ServiceTasks() {
           </div>
 
           {/* Column 2: Deep Cleaning (Additional Services) */}
-          <div className="bg-slate-50 border border-slate-150 rounded-3xl p-6 shadow-sm hover:shadow-md transition-all h-full">
+          <div className="bg-brand-secondary/5 border border-brand-secondary/10 rounded-3xl p-6 shadow-sm hover:shadow-md transition-all h-full">
             <div className="flex items-center gap-3 mb-6">
               <span className="p-2 bg-brand-primary text-white rounded-xl">02</span>
               <h3 className="font-display font-bold text-xl text-slate-900">Deep Cleaning Extras</h3>
@@ -191,7 +191,7 @@ export default function ServiceTasks() {
           </div>
 
           {/* Column 3: Move In / Out */}
-          <div className="bg-slate-50 border border-slate-150 rounded-3xl p-6 shadow-sm hover:shadow-md transition-all h-full">
+          <div className="bg-brand-accent/5 border border-brand-accent/10 rounded-3xl p-6 shadow-sm hover:shadow-md transition-all h-full">
             <div className="flex items-center gap-3 mb-6">
               <span className="p-2 bg-brand-primary text-white rounded-xl">03</span>
               <h3 className="font-display font-bold text-xl text-slate-900">Move Out / In</h3>

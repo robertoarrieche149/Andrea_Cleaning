@@ -40,7 +40,7 @@ export default function Coverage() {
   const serviceAreas = ["Madison", "Huntsville", "Hampton Cove", "New Market"];
 
   return (
-    <section className="py-20 bg-slate-50 border-b border-slate-100" id="coverage-section">
+    <section className="py-20 bg-brand-primary/10 border-b border-brand-primary/20" id="coverage-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Frequencies Title */}
@@ -93,7 +93,7 @@ export default function Coverage() {
               <div>
                 <a
                   href="#estimate-section"
-                  className="block w-full py-2.5 text-center text-xs font-bold bg-slate-50 border border-slate-200 hover:border-brand-primary text-slate-700 hover:text-brand-primary rounded-xl transition-all"
+                  className="block w-full py-2.5 text-center text-xs font-bold bg-brand-primary/5 border border-brand-primary/20 hover:border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white rounded-xl transition-all"
                 >
                   Book {freq.title.split(" ")[0]}
                 </a>

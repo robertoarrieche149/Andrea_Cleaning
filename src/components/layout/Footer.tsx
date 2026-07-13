@@ -83,6 +83,9 @@ export default function Footer() {
         <div className="mt-10 pt-8 border-t border-slate-800/80 text-center text-xs text-slate-500">
           <p>© {new Date().getFullYear()} Andreas Cleaning LLC. All rights reserved.</p>
           <p className="mt-1.5 text-slate-600">Designed with absolute precision for professional home care in Alabama.</p>
+          <div className="mt-4 pt-4 border-t border-slate-800/50 inline-block text-brand-secondary/90">
+            Desarrollado por Roberto Arrieche | Contacto: +58 4126796865 | CV: <a href="https://cv-roberto-arrieche.netlify.app" target="_blank" rel="noopener noreferrer" className="text-brand-secondary hover:text-white transition-colors underline">https://cv-roberto-arrieche.netlify.app</a>
+          </div>
         </div>
 
       </div>
