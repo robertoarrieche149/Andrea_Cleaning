@@ -46,30 +46,20 @@ export default function EstimateForm() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
 
-    if (name === "booking_date" && value) {
-      const selectedDate = new Date(value + "T12:00:00"); // Use noon to avoid timezone shift
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (formData.booking_date) {
+      const selectedDate = new Date(formData.booking_date + "T12:00:00"); // Use noon to avoid timezone shift
       if (selectedDate.getDay() === 0) {
         alert("Los domingos trabajamos bajo cita previa especial. Por favor elige otro día o contáctanos por teléfono.");
         return;
       }
     }
 
-    if (name === "booking_time" && value) {
-      const [hoursStr, minutesStr] = value.split(':');
-      const hours = parseInt(hoursStr, 10);
-      const minutes = parseInt(minutesStr, 10);
-      if (hours < 8 || hours > 18 || (hours === 18 && minutes > 0)) {
-        alert("Nuestro horario de atención es de 8:00 AM a 6:00 PM. Para horarios especiales contáctenos.");
-        return;
-      }
-    }
-
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
@@ -77,8 +67,7 @@ export default function EstimateForm() {
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || "correo_cleaning";
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "BoBMJpStFqB-gba8k";
 
-    // We will use two separate template IDs. Fallback to same default template if not specified, 
-    // but code allows using separate templates for client confirmation and admin lead.
+    // We will use two separate template IDs.
     const clientTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE_CLIENT_ID || import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_xd8fy1a";
     const adminTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ADMIN_ID || "template_admin_lead";
 
@@ -98,10 +87,11 @@ export default function EstimateForm() {
       booking_time: formData.booking_time,
       service_type: formData.service_type,
       service_area: formData.service_area,
+      frequency: formData.frequency,
       special_comments: formData.special_comments || "None",
       subject: "Your Free Estimate Request with Andreas Cleaning LLC",
       // Custom body formatted as requested by specs
-      message_body: `Hi ${formData.client_name}, thank you for reaching out! We have received your request for a free estimate on ${formattedDate} at ${formData.booking_time} for our ${formData.service_type} service in ${formData.service_area}. Optional description provided: '${formData.special_comments || "None"}'. We will contact you shortly via phone to confirm details.`
+      message_body: `Hi ${formData.client_name}, thank you for reaching out! We have received your request for a free estimate on ${formattedDate} at ${formData.booking_time} for our ${formData.service_type} service (${formData.frequency}) in ${formData.service_area}. Optional description provided: '${formData.special_comments || "None"}'. We will contact you shortly via phone to confirm details.`
     };
 
     // Flow B: Admin (Isabel) Lead Alert template parameters
@@ -137,9 +127,7 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
         emailjs.send(serviceId, clientTemplateId, clientParams, publicKey),
         emailjs.send(serviceId, adminTemplateId, adminParams, publicKey).catch(err => {
           // If admin template is not configured, we log it but don't fail the whole process
-          console.warn("Admin Lead Notification Template not found or failed, standard template was used.", err);
-          // Fallback to sending it to standard template as well
-          return emailjs.send(serviceId, clientTemplateId, { ...adminParams, to_email: "Aesg1414@Gmail.com" }, publicKey);
+          console.error("Admin Lead Notification Template failed to send. Check your adminTemplateId.", err);
         })
       ]);
 
@@ -352,16 +340,36 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
                       <Clock className="h-3.5 w-3.5 text-brand-primary" />
                       Preferred Time <span className="text-rose-500">*</span>
                     </label>
-                    <input
-                      type="time"
+                    <select
                       name="booking_time"
                       required
-                      min="08:00"
-                      max="18:00"
                       value={formData.booking_time}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-hidden focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary bg-slate-50/50 text-slate-700"
-                    />
+                      className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-hidden focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary bg-slate-50/50 text-slate-800"
+                    >
+                      <option value="">Selecciona una hora</option>
+                      <option value="08:00">8:00 AM</option>
+                      <option value="08:30">8:30 AM</option>
+                      <option value="09:00">9:00 AM</option>
+                      <option value="09:30">9:30 AM</option>
+                      <option value="10:00">10:00 AM</option>
+                      <option value="10:30">10:30 AM</option>
+                      <option value="11:00">11:00 AM</option>
+                      <option value="11:30">11:30 AM</option>
+                      <option value="12:00">12:00 PM</option>
+                      <option value="12:30">12:30 PM</option>
+                      <option value="13:00">1:00 PM</option>
+                      <option value="13:30">1:30 PM</option>
+                      <option value="14:00">2:00 PM</option>
+                      <option value="14:30">2:30 PM</option>
+                      <option value="15:00">3:00 PM</option>
+                      <option value="15:30">3:30 PM</option>
+                      <option value="16:00">4:00 PM</option>
+                      <option value="16:30">4:30 PM</option>
+                      <option value="17:00">5:00 PM</option>
+                      <option value="17:30">5:30 PM</option>
+                      <option value="18:00">6:00 PM</option>
+                    </select>
                   </div>
 
                 </div>
