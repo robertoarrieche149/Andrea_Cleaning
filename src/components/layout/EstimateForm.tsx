@@ -136,6 +136,14 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
 
       setSubmitStatus("success");
       setFormData(initialFormState);
+      
+      // En móviles, el formulario es largo. Al mostrar el mensaje de éxito (que es corto), 
+      // la página se encoge y el usuario puede quedar viendo un espacio en blanco.
+      // Hacemos scroll suave hacia el mensaje.
+      setTimeout(() => {
+        document.getElementById("estimate-section")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+      
     } catch (error) {
       console.error("Error sending estimate requests via EmailJS:", error);
       setSubmitStatus("error");
@@ -183,7 +191,7 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
                 <h3 className="font-display font-extrabold text-2xl text-emerald-700">
                   ¡Solicitud Enviada con Éxito!
                 </h3>
-                <p className="text-slate-650 max-w-md mx-auto text-sm leading-relaxed">
+                <p className="text-slate-600 max-w-md mx-auto text-sm leading-relaxed">
                   ¡Gracias! Hemos enviado una confirmación a tu correo.
                   El equipo de limpieza de Isabel revisará los detalles y te llamaremos en breve para confirmar la cita.
                 </p>
