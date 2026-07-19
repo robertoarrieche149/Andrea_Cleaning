@@ -82,6 +82,7 @@ export default function EstimateForm() {
     // Flow A: Client Confirmation template parameters
     const clientParams = {
       to_email: formData.client_email,
+      client_email: formData.client_email, // Redundant fallback for EmailJS dynamic To Email variable
       client_name: formData.client_name,
       booking_date: formattedDate,
       booking_time: formData.booking_time,
@@ -96,10 +97,11 @@ export default function EstimateForm() {
 
     // Flow B: Admin (Isabel) Lead Alert template parameters
     const adminParams = {
-      to_email: "Aesg1414@Gmail.com", // Isabel's administrative email
+      to_email: import.meta.env.VITE_ADMIN_EMAIL || "robertoarrieche965@gmail.com", // Isabel's administrative email (overridable in tests)
       client_name: formData.client_name,
       client_phone: formData.client_phone,
       client_email: formData.client_email,
+      email: formData.client_email, // Added to fix the mailto:{{email}} link in the admin template
       booking_date: formattedDate,
       booking_time: formData.booking_time,
       service_type: formData.service_type,
@@ -122,14 +124,15 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
     };
 
     try {
-      // Execute both EmailJS requests concurrently
-      await Promise.all([
-        emailjs.send(serviceId, clientTemplateId, clientParams, publicKey),
-        emailjs.send(serviceId, adminTemplateId, adminParams, publicKey).catch(err => {
-          // If admin template is not configured, we log it but don't fail the whole process
-          console.error("Admin Lead Notification Template failed to send. Check your adminTemplateId.", err);
-        })
-      ]);
+      // Execute EmailJS requests sequentially to prevent rate limits or overlapping issues
+      await emailjs.send(serviceId, clientTemplateId, clientParams, publicKey);
+      
+      try {
+        await emailjs.send(serviceId, adminTemplateId, adminParams, publicKey);
+      } catch (err) {
+        // If admin template is not configured, we log it but don't fail the whole process
+        console.error("Admin Lead Notification Template failed to send. Check your adminTemplateId.", err);
+      }
 
       setSubmitStatus("success");
       setFormData(initialFormState);
