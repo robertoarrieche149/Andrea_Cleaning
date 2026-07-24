@@ -90,14 +90,14 @@ export default function EstimateForm() {
       service_area: formData.service_area,
       frequency: formData.frequency,
       special_comments: formData.special_comments || "None",
-      subject: "Your Free Estimate Request with Andreas Cleaning LLC",
+      subject: "Your Free Estimate Request with Andrea's Cleaning LLC",
       // Custom body formatted as requested by specs
       message_body: `Hi ${formData.client_name}, thank you for reaching out! We have received your request for a free estimate on ${formattedDate} at ${formData.booking_time} for our ${formData.service_type} service (${formData.frequency}) in ${formData.service_area}. Optional description provided: '${formData.special_comments || "None"}'. We will contact you shortly via phone to confirm details.`
     };
 
     // Flow B: Admin (Isabel) Lead Alert template parameters
     const adminParams = {
-      to_email: import.meta.env.VITE_ADMIN_EMAIL || "robertoarrieche965@gmail.com", // Isabel's administrative email (overridable in tests)
+      to_email: import.meta.env.VITE_ADMIN_EMAIL || "Cleaningandrea.1977@gmail.com", // Isabel's administrative email (overridable in tests)
       client_name: formData.client_name,
       client_phone: formData.client_phone,
       client_email: formData.client_email,
@@ -208,7 +208,7 @@ Acción: Ponerse en contacto con el cliente para cerrar la cita.`
                 {submitStatus === "error" && (
                   <div className="bg-rose-50 border border-rose-100 rounded-2xl p-4 text-rose-800 text-xs sm:text-sm font-medium">
                     <p className="text-sm font-medium mt-1">
-                      ⚠ There was an error submitting your request. Please check your network and try again, or call us directly at +1 (938) 247-2787.
+                      ⚠ There was an error submitting your request. Please check your network and try again, or call us directly at (256) 289-9918.
                     </p>
                   </div>
                 )}

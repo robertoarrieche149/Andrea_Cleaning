@@ -3,8 +3,8 @@ import { motion } from "motion/react";
 import { Phone, CheckCircle2 } from "lucide-react";
 
 export default function Introduction() {
-  const phone = "+1 (938) 247-2787";
-  const phoneUrl = "sms:+19382472787";
+  const phone = "(256) 289-9918";
+  const phoneUrl = "sms:+12562899918";
 
   return (
     <section className="py-20 bg-brand-primary/5 border-b border-brand-primary/10" id="about-section">
@@ -26,7 +26,7 @@ export default function Introduction() {
               
               <img 
                 src="/assets/images/logo.webp" 
-                alt="Andreas Cleaning LLC Official Logo" 
+                alt="Andrea's Cleaning LLC Official Logo" 
                 className="w-full h-auto max-h-[300px] object-contain rounded-2xl mx-auto"
                 loading="lazy"
               />
@@ -53,7 +53,7 @@ export default function Introduction() {
 
             <p className="text-slate-650 text-base sm:text-lg leading-relaxed">
               Enjoy a fresh, spotless, and welcoming home without lifting a finger. 
-              At Andreas Cleaning LLC, we specialize in premium residential services tailored specifically to your needs. 
+              At Andrea's Cleaning LLC, we specialize in premium residential services tailored specifically to your needs. 
               Our experienced team uses advanced tools and precise attention to detail to ensure every space is beautifully sanitized.
             </p>
 

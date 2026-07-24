@@ -47,7 +47,7 @@ template para notificacion de nueva solicitud de cita (para isabel(en caso de pr
       </tbody>
     </table>
   </div>
-  <div style="margin-top: 30px; font-size: 12px; color: #666; text-align: center;">This email was generated automatically by the Andreas Cleaning LLC booking system.</div>
+  <div style="margin-top: 30px; font-size: 12px; color: #666; text-align: center;">This email was generated automatically by the Andrea's Cleaning LLC booking system.</div>
 </div>
 
 
@@ -64,12 +64,12 @@ template confirmacion de cita (para el cliente)
   
   <!-- LOGO DE LA EMPRESA -->
   <div style="text-align: center; margin-bottom: 20px;">
-    <img src="https://andreas-cleaning.netlify.app/assets/images/logo.webp" alt="Andreas Cleaning LLC Logo" style="max-width: 180px; height: auto; display: inline-block;" />
+    <img src="https://andreas-cleaning.netlify.app/assets/images/logo.webp" alt="Andrea's Cleaning LLC Logo" style="max-width: 180px; height: auto; display: inline-block;" />
   </div>
 
   <div style="text-align: center; margin-bottom: 25px;">
     <h2 style="color: #66BB6A; margin-bottom: 5px; font-size: 24px;">Appointment Requested! 🏠</h2>
-    <p style="margin-top: 0; color: #666; font-size: 16px;">Thank you for choosing <strong>Andreas Cleaning LLC</strong>.</p>
+    <p style="margin-top: 0; color: #666; font-size: 16px;">Thank you for choosing <strong>Andrea's Cleaning LLC</strong>.</p>
   </div>
   
   <div style="padding: 24px; border: 1px solid #b3d1ff; border-radius: 8px; background-color: #f0f6ff;">

@@ -14,7 +14,7 @@ interface HeroProps {
 }
 
 export default function Hero({ onBookNowClick }: HeroProps) {
-  const phoneUrl = "sms:+19382472787";
+  const phoneUrl = "sms:+12562899918";
 
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center pt-24 sm:pt-28 pb-16 overflow-hidden">
@@ -54,7 +54,7 @@ export default function Hero({ onBookNowClick }: HeroProps) {
           className="font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl text-white tracking-tight leading-none max-w-4xl mx-auto drop-shadow-md"
           id="hero-title"
         >
-          Andreas Cleaning LLC
+          Andrea's Cleaning LLC
         </motion.h1>
 
         {/* H2 Title */}

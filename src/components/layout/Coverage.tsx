@@ -147,10 +147,10 @@ export default function Coverage() {
               <h4 className="text-lg font-bold text-brand-secondary mt-1">Contact us directly to ask</h4>
               <p className="text-xs text-slate-200 mt-1">Special travel rates may apply</p>
               <a
-                href="sms:+19382472787"
+                href="sms:+12562899918"
                 className="inline-flex items-center gap-2 bg-brand-accent hover:bg-brand-accent/90 text-brand-primary font-bold px-6 py-3 rounded-xl transition-all shadow-md mt-4 text-sm font-mono"
               >
-                +1 (938) 247-2787
+                (256) 289-9918
               </a>
             </div>
           </div>

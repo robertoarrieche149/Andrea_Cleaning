@@ -26,7 +26,7 @@ export default function Header({ isScrolled }: HeaderProps) {
           }`}>
             <img 
               src="/assets/images/logo.webp" 
-              alt="Andreas Cleaning LLC Logo" 
+              alt="Andrea's Cleaning LLC Logo" 
               className="h-10 sm:h-11 w-auto object-contain rounded-lg"
             />
           </div>
@@ -35,14 +35,14 @@ export default function Header({ isScrolled }: HeaderProps) {
               ? "text-brand-primary group-hover:text-brand-secondary"
               : "text-white group-hover:text-brand-secondary"
           }`}>
-            Andreas Cleaning LLC
+            Andrea's Cleaning LLC
           </span>
         </a>
 
         {/* Phone Number Right Aligned */}
         <div className="flex items-center">
           <a 
-            href="sms:+19382472787" 
+            href="sms:+12562899918" 
             className={`flex items-center gap-2 font-bold px-4 py-2.5 rounded-full border transition-all text-sm sm:text-base cursor-pointer shadow-xs duration-300 ${
               isScrolled
                 ? "bg-brand-50 hover:bg-brand-100 text-brand-primary border-brand-200"
@@ -53,7 +53,7 @@ export default function Header({ isScrolled }: HeaderProps) {
               isScrolled ? "text-brand-accent" : "text-brand-secondary"
             }`} />
             <span className="hidden sm:inline">Call or Text: </span>
-            <span className="font-mono">+1 (938) 247-2787</span>
+            <span className="font-mono">(256) 289-9918</span>
           </a>
         </div>
 

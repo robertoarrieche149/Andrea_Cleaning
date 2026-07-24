@@ -1,5 +1,5 @@
 import React from "react";
-import { Sparkles, Phone, Mail, CreditCard } from "lucide-react";
+import { Sparkles, Phone, Mail } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -12,7 +12,7 @@ export default function Footer() {
           <div className="text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start gap-2 text-white font-display font-extrabold text-xl mb-4">
               <Sparkles className="h-5 w-5 text-brand-secondary" />
-              <span>Andreas Cleaning LLC</span>
+              <span>Andrea's Cleaning LLC</span>
             </div>
             <p className="text-sm text-slate-400 leading-relaxed">
               Providing premium and deep residential cleaning across Madison, Huntsville, Hampton Cove, and New Market, Alabama. Fully customizable scheduling tailored precisely to your family's safety and comfort.
@@ -37,18 +37,18 @@ export default function Footer() {
             </p>
             <div className="flex flex-col gap-2 items-center md:items-end">
               <a 
-                href="sms:+19382472787" 
+                href="sms:+12562899918" 
                 className="inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-600 text-white font-bold px-5 py-2.5 rounded-xl transition-all font-mono"
               >
                 <Phone className="h-4 w-4 text-brand-secondary animate-pulse" />
-                +1 (938) 247-2787
+                (256) 289-9918
               </a>
               <a 
-                href="mailto:Aesg1414@Gmail.com" 
+                href="mailto:Cleaningandrea.1977@gmail.com" 
                 className="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-bold px-5 py-2.5 rounded-xl transition-all font-mono border border-slate-700"
               >
                 <Mail className="h-4 w-4 text-brand-secondary" />
-                Aesg1414@Gmail.com
+                Cleaningandrea.1977@gmail.com
               </a>
             </div>
           </div>
@@ -60,7 +60,7 @@ export default function Footer() {
           <h5 className="text-xs uppercase tracking-wider font-bold text-slate-500 mb-4">
             Accepted Payment Methods
           </h5>
-          <div className="flex justify-center items-center gap-3">
+          <div className="flex flex-wrap justify-center items-center gap-3">
             {/* Cash */}
             <div className="bg-slate-800 border border-slate-700/60 rounded-lg py-2 px-4 shadow-xs flex items-center gap-1.5 transition-colors hover:border-slate-600 group">
               <span className="h-2 w-2 rounded-full bg-emerald-500" />
@@ -71,17 +71,22 @@ export default function Footer() {
               <span className="h-2 w-2 rounded-full bg-purple-500" />
               <span className="text-xs font-bold text-white group-hover:text-purple-400 transition-colors">Zelle</span>
             </div>
-            {/* Cards */}
+            {/* Direct Deposit */}
             <div className="bg-slate-800 border border-slate-700/60 rounded-lg py-2 px-4 shadow-xs flex items-center gap-1.5 transition-colors hover:border-slate-600 group">
-              <CreditCard className="h-3.5 w-3.5 text-brand-secondary group-hover:text-brand-secondary transition-colors" />
-              <span className="text-xs font-bold text-white group-hover:text-brand-secondary transition-colors">Cards</span>
+              <span className="h-2 w-2 rounded-full bg-blue-500" />
+              <span className="text-xs font-bold text-white group-hover:text-blue-400 transition-colors">Direct Deposit</span>
+            </div>
+            {/* Check */}
+            <div className="bg-slate-800 border border-slate-700/60 rounded-lg py-2 px-4 shadow-xs flex items-center gap-1.5 transition-colors hover:border-slate-600 group">
+              <span className="h-2 w-2 rounded-full bg-amber-500" />
+              <span className="text-xs font-bold text-white group-hover:text-amber-400 transition-colors">Check</span>
             </div>
           </div>
         </div>
 
         {/* Bottom Copyright */}
         <div className="mt-10 pt-8 border-t border-slate-800/80 text-center text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} Andreas Cleaning LLC. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Andrea's Cleaning LLC. All rights reserved.</p>
           <p className="mt-1.5 text-slate-600">Designed with absolute precision for professional home care in Alabama.</p>
           <div className="mt-4 pt-4 border-t border-slate-800/50 inline-block text-brand-secondary/90">
             Desarrollado por Roberto Arrieche | Contacto: +58 4126796865 | CV: <a href="https://cv-roberto-arrieche.netlify.app" target="_blank" rel="noopener noreferrer" className="text-brand-secondary hover:text-white transition-colors underline">https://cv-roberto-arrieche.netlify.app</a>

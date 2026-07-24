@@ -19,63 +19,63 @@ export default function WorkGallery() {
       id: 1,
       type: "image",
       src: "/assets/images/baño-limpio.webp",
-      alt: "Sparkling clean bathroom tile grout - Andreas Cleaning LLC in Huntsville AL",
+      alt: "Sparkling clean bathroom tile grout - Andrea's Cleaning LLC in Huntsville AL",
       tag: "Bathroom Cleaning"
     },
     {
       id: 2,
       type: "image",
       src: "/assets/images/baño-limpio2.webp",
-      alt: "Disinfected pristine bathroom sink and mirror - Andreas Cleaning LLC in Madison AL",
+      alt: "Disinfected pristine bathroom sink and mirror - Andrea's Cleaning LLC in Madison AL",
       tag: "Bathroom Cleaning"
     },
     {
       id: 3,
       type: "image",
       src: "/assets/images/baño-limpio3.webp",
-      alt: "Sanitized spotless bathtub and shower space - Andreas Cleaning LLC in Hampton Cove AL",
+      alt: "Sanitized spotless bathtub and shower space - Andrea's Cleaning LLC in Hampton Cove AL",
       tag: "Bathroom Cleaning"
     },
     {
       id: 4,
       type: "image",
       src: "/assets/images/cocina-limpia.webp",
-      alt: "Polished countertops and kitchen stove - Andreas Cleaning LLC in New Market AL",
+      alt: "Polished countertops and kitchen stove - Andrea's Cleaning LLC in New Market AL",
       tag: "Kitchen Cleaning"
     },
     {
       id: 5,
       type: "image",
       src: "/assets/images/habitacion-limpia-vacia2.webp",
-      alt: "Deep cleaned empty bedroom after transition - Andreas Cleaning LLC move-in service in Huntsville AL",
+      alt: "Deep cleaned empty bedroom after transition - Andrea's Cleaning LLC move-in service in Huntsville AL",
       tag: "Move In/Out"
     },
     {
       id: 6,
       type: "image",
       src: "/assets/images/habitacion-vacia-limpia.webp",
-      alt: "Spotless bedroom hardwood floors and dusting - Andreas Cleaning LLC local cleaning in Madison AL",
+      alt: "Spotless bedroom hardwood floors and dusting - Andrea's Cleaning LLC local cleaning in Madison AL",
       tag: "Bedroom Cleaning"
     },
     {
       id: 7,
       type: "image",
       src: "/assets/images/habitacion-vacia-limpia-alfombra.webp",
-      alt: "Vacuumed clean carpet and baseboards in bedroom - Andreas Cleaning LLC in Hampton Cove AL",
+      alt: "Vacuumed clean carpet and baseboards in bedroom - Andrea's Cleaning LLC in Hampton Cove AL",
       tag: "Carpet & Floors"
     },
     {
       id: 8,
       type: "image",
       src: "/assets/images/sala-vacia-limpia.webp",
-      alt: "Welcoming and clean spacious living room - Andreas Cleaning LLC residential services in Alabama",
+      alt: "Welcoming and clean spacious living room - Andrea's Cleaning LLC residential services in Alabama",
       tag: "Living Room"
     },
     {
       id: 9,
       type: "video",
       src: "/assets/video/0712.mp4",
-      alt: "Interactive preview of our professional cleaning process - Andreas Cleaning LLC video",
+      alt: "Interactive preview of our professional cleaning process - Andrea's Cleaning LLC video",
       tag: "Process Video"
     }
   ];
